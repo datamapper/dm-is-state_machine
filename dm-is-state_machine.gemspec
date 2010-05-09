@@ -54,6 +54,7 @@ Gem::Specification.new do |s|
      "spec/unit/dsl/state_dsl_spec.rb",
      "spec/unit/state_machine_spec.rb",
      "tasks/ci.rake",
+     "tasks/local_gemfile.rake",
      "tasks/metrics.rake",
      "tasks/spec.rake",
      "tasks/yard.rake",
