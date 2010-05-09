@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["David James"]
-  s.date = %q{2010-03-22}
+  s.date = %q{2010-05-10}
   s.description = %q{DataMapper plugin for creating state machines}
   s.email = %q{djwonk [a] collectiveinsight [d] net}
   s.extra_rdoc_files = [
@@ -17,7 +17,8 @@ Gem::Specification.new do |s|
      "README.rdoc"
   ]
   s.files = [
-    "Gemfile",
+    ".gitignore",
+     "Gemfile",
      "LICENSE",
      "README.rdoc",
      "Rakefile",
@@ -34,8 +35,10 @@ Gem::Specification.new do |s|
      "spec/examples/invalid_states.rb",
      "spec/examples/invalid_transitions_1.rb",
      "spec/examples/invalid_transitions_2.rb",
+     "spec/examples/light_switch.rb",
      "spec/examples/slot_machine.rb",
      "spec/examples/traffic_light.rb",
+     "spec/integration/inheritance_spec.rb",
      "spec/integration/invalid_events_spec.rb",
      "spec/integration/invalid_states_spec.rb",
      "spec/integration/invalid_transitions_spec.rb",
@@ -62,6 +65,28 @@ Gem::Specification.new do |s|
   s.rubyforge_project = %q{datamapper}
   s.rubygems_version = %q{1.3.6}
   s.summary = %q{DataMapper plugin for creating state machines}
+  s.test_files = [
+    "spec/examples/invalid_events.rb",
+     "spec/examples/invalid_states.rb",
+     "spec/examples/invalid_transitions_1.rb",
+     "spec/examples/invalid_transitions_2.rb",
+     "spec/examples/light_switch.rb",
+     "spec/examples/slot_machine.rb",
+     "spec/examples/traffic_light.rb",
+     "spec/integration/inheritance_spec.rb",
+     "spec/integration/invalid_events_spec.rb",
+     "spec/integration/invalid_states_spec.rb",
+     "spec/integration/invalid_transitions_spec.rb",
+     "spec/integration/slot_machine_spec.rb",
+     "spec/integration/traffic_light_spec.rb",
+     "spec/spec_helper.rb",
+     "spec/unit/data/event_spec.rb",
+     "spec/unit/data/machine_spec.rb",
+     "spec/unit/data/state_spec.rb",
+     "spec/unit/dsl/event_dsl_spec.rb",
+     "spec/unit/dsl/state_dsl_spec.rb",
+     "spec/unit/state_machine_spec.rb"
+  ]
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
