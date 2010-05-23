@@ -10,7 +10,7 @@ begin
     gem.summary     = 'DataMapper plugin for creating state machines'
     gem.description = gem.summary
     gem.email       = 'djwonk [a] collectiveinsight [d] net'
-    gem.homepage    = 'http://github.com/datamapper/dm-more/tree/master/%s' % gem.name
+    gem.homepage    = 'http://github.com/datamapper/%s' % gem.name
     gem.authors     = [ 'David James' ]
 
     gem.rubyforge_project = 'datamapper'
