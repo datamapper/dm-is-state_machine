@@ -10,8 +10,6 @@ module DataMapper
 
           # The property of the DM resource that will hold this Machine's
           # state.
-          #
-          # TODO: change :property to :property
           attr_accessor :property
 
           # The initial value of this Machine's state
