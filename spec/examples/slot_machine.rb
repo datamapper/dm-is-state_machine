@@ -5,7 +5,7 @@ class SlotMachine
   property :id, Serial
   property :power_on, Boolean, :default => false
 
-  is :state_machine, :initial => :off, :column => :mode do
+  is :state_machine, :initial => :off, :property => :mode do
     state :off,
       :enter => :power_down,
       :exit  => :power_up

@@ -7,11 +7,11 @@ describe TrafficLight do
     @t = TrafficLight.new
   end
 
-  it "should have a 'color' column" do
+  it "should have a 'color' property" do
     @t.attributes.should have_key(:color)
   end
 
-  it "should not have a 'state' column" do
+  it "should not have a 'state' property" do
     @t.attributes.should_not have_key(:state)
   end
 

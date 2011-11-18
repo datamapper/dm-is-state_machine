@@ -10,18 +10,18 @@ module DataMapper
       class NoInitialState  < RuntimeError; end
 
       ##
-      # Makes a column ('state' by default) act as a state machine. It will
+      # Makes a property ('state' by default) act as a state machine. It will
       # define the property if it does not exist.
       #
       # @example [Usage]
       #   is :state_machine
       #   is :state_machine, :initial => :internal
-      #   is :state_machine, :column => :availability
-      #   is :state_machine, :column => :availability, :initial => :external
+      #   is :state_machine, :property => :availability
+      #   is :state_machine, :property => :availability, :initial => :external
       #
       # @param options<Hash> a hash of options
       #
-      # @option :column<Symbol> the name of the custom column
+      # @option :property<Symbol> the name of the custom property
       #
       def is_state_machine(options = {}, &block)
         extend DataMapper::Is::StateMachine::EventDsl
@@ -29,19 +29,19 @@ module DataMapper
         include DataMapper::Is::StateMachine::InstanceMethods
 
         # ===== Setup context =====
-        options = { :column => :state, :initial => nil }.merge(options)
-        column  = options[:column]
+        options = { :property => :state, :initial => nil }.merge(options)
+        property  = options[:property]
         initial = options[:initial].to_s
-        unless properties.detect { |p| p.name == column }
-          property column, String, :default => initial
+        unless properties.detect { |p| p.name == property }
+          property property, String, :default => initial
         end
-        machine = Data::Machine.new(column, initial)
+        machine = Data::Machine.new(property, initial)
         @is_state_machine = { :machine => machine }
 
         class_eval <<-RUBY, __FILE__, __LINE__ + 1
-          def #{column}=(value)
+          def #{property}=(value)
             value = value.to_s if value.kind_of?(Symbol)
-            attribute_set(#{column.inspect}, value)
+            attribute_set(#{property.inspect}, value)
           end
         RUBY
 
@@ -119,10 +119,10 @@ module DataMapper
 
         def transition!(event_name)
           machine = model.instance_variable_get(:@is_state_machine)[:machine]
-          column = machine.column
-          machine.current_state_name = __send__(column)
+          property = machine.property
+          machine.current_state_name = __send__(property)
           machine.fire_event(event_name, self)
-          __send__("#{column}=", machine.current_state_name)
+          __send__("#{property}=", machine.current_state_name)
         end
 
       end # InstanceMethods
