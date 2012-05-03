@@ -4,7 +4,7 @@ class TrafficLight
 
   property :id, Serial # see note 1
 
-  is :state_machine, :initial => :green, :column => :color do
+  is :state_machine, :initial => :green, :property => :color do
     state :green,  :enter => Proc.new { |o| o.log << "G" }
     state :yellow, :enter => Proc.new { |o| o.log << "Y" }
     state :red,    :enter => Proc.new { |o| o.log << "R" }

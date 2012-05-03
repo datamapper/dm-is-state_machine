@@ -10,9 +10,7 @@ module DataMapper
 
           # The property of the DM resource that will hold this Machine's
           # state.
-          #
-          # TODO: change :column to :property
-          attr_accessor :column
+          attr_accessor :property
 
           # The initial value of this Machine's state
           attr_accessor :initial
@@ -27,8 +25,8 @@ module DataMapper
 
           attr_accessor :states
 
-          def initialize(column, initial)
-            @column, @initial   = column, initial
+          def initialize(property, initial)
+            @property, @initial   = property, initial
             @events, @states    = [], []
             @current_state_name = initial
           end

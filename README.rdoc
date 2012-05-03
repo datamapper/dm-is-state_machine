@@ -33,7 +33,7 @@ Add this line to your init.rb:
 
     property :id, Serial
 
-    is :state_machine, :initial => :green, :column => :color do
+    is :state_machine, :initial => :green, :property => :color do
       state :green
       state :yellow
       state :red,    :enter => :red_hook

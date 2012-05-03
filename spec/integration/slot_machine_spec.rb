@@ -7,15 +7,15 @@ describe SlotMachine do
     @sm = SlotMachine.new
   end
 
-  it "should have a 'mode' column" do
+  it "should have a 'mode' property" do
     @sm.attributes.should have_key(:mode)
   end
 
-  it "should have a 'power_on' column" do
+  it "should have a 'power_on' property" do
     @sm.attributes.should have_key(:power_on)
   end
 
-  it "should not have a 'state' column" do
+  it "should not have a 'state' property" do
     @sm.attributes.should_not have_key(:state)
   end
 

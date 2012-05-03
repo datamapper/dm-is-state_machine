@@ -22,8 +22,8 @@ describe DataMapper::Is::StateMachine::Data::Machine do
       @machine = new_machine(:power, :off)
     end
 
-    it "#column should work" do
-      @machine.column.should == :power
+    it "#property should work" do
+      @machine.property.should == :power
     end
 
     it "#initial should work" do
@@ -58,8 +58,8 @@ describe DataMapper::Is::StateMachine::Data::Machine do
       @turn_on.stub!(:transitions).and_return([{ :from => :off, :to => :on }])
     end
 
-    it "#column should work" do
-      @machine.column.should == :power
+    it "#property should work" do
+      @machine.property.should == :power
     end
 
     it "#initial should work" do

@@ -12,7 +12,7 @@ module DataMapper
         #   class TrafficLight
         #     include DataMapper::Resource
         #     property :id, Serial
-        #     is :state_machine, :initial => :green, :column => :color do
+        #     is :state_machine, :initial => :green, :property => :color do
         #       # state definitions go here...
         #
         #       event :forward do
@@ -51,9 +51,9 @@ module DataMapper
           #
           # self.class_eval <<-RUBY, __FILE__, __LINE__ + 1
           #   def #{name}!
-          #     machine.current_state_name = __send__(:"#{column}")
+          #     machine.current_state_name = __send__(:"#{property}")
           #     machine.fire_event(name, self)
-          #     __send__(:"#{column}="), machine.current_state_name
+          #     __send__(:"#{property}="), machine.current_state_name
           #   end
           # RUBY
 
